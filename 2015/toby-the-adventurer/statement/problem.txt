@@ -1,0 +1,57 @@
+<p>Toby is a great adventurer, today he is trying to explore "Bitland" (a new country that will be remembered after Toby's exploration).</p>
+
+<p>Bitland is divided in $N$ smallest cities and $M$ unidirectional roads between cities.</p>
+
+<p>Toby begins the adventure at the city $R$, and after that goes to any city $R'$ which is connected to $R$, if this new city ($R'$) is not known by Toby, he must pay a cost (in terms of adventure power) associated to the road. Otherwise, if Toby wants to go to a known city he does not need pay anything, even if there is no road from the current city to the target city... is not Toby so cool ?</p>
+
+<p>Toby keeps traveling between cities until he reach every city in Bitland. After this moment Toby goes to home, happy and eager for new adventures. </p>
+
+<p>Wait ! where is the problem ?</p>
+
+<p>Did you remember that Toby has to pay for each road which is used to disclose a new city ? Help Toby to minimize this cost (the sum of all power paid), because he need as much energy as possible for his new adventures.</p>
+
+<h3>Input</h3>
+<p>The input starts with an integer $1 \lt T \le 10$ indicating the number of test cases. </p>
+<p>Each test case begins with three integers $ 3 \lt N \le 1000 ,  3 \lt M \le 10000, 0 \le  R \lt N$ denoting the number of cities, number of roads and initial city, respectively. Followed by $M$ lines which contain three integers, $ 0 \le u, v \lt N, 1 \le w \le 1000$. This numbers denote a road from the city $u$ to the city $v$ whit cost $w$ </p>
+
+<p> Note that could be several roads between the same pair of cities </p>
+
+<h3>Output</h3>
+
+<p>Print one line with the total cost for the adventure, followed by $N - 1$ lines whit the chosen roads in the same format that was given in the input: </p>
+<p>$u v w$  - three space separated integers denoting a road from $u$ to $v$ whit cost $w$</p>
+<p> If there are several answers, print any of them. </p>
+<p>If there is no way to visit all the N cities, print "impossible" without quotes.</p>
+<h3>Example</h3>
+<h4>Input:</h4>
+<pre>
+2
+
+5 5 1
+0 1 1
+0 1 100
+0 2 100
+1 3 2
+3 2 3
+2 4 4
+
+5 5 4
+0 1 1
+0 2 100
+1 3 2
+3 2 3
+2 4 4
+</pre>
+<h4>Output:</h4>
+<pre>
+10
+0 1 1
+1 2 2
+3 2 3
+2 4 4
+impossible
+</pre>
+
+<br>
+
+Problem Setter: Manuel Felipe Pineda

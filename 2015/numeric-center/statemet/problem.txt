@@ -1,0 +1,50 @@
+<P> A numeric center is a number that separates in a consecutive and positive integer number 
+list(starting at one) in two groups of consecutive and positive integer numbers, in which 
+their sum is the same. The first numeric center is number 6, which takes the list 
+$\{1, ~2, ~3, ~4, ~5, ~6, ~7, ~8 \}$ and produces two lists of consecutive and positive integer 
+numbers in which their sum (in this case 15) is the same. Those lists are: 
+$\{1, ~2, ~3, ~4, ~5\}$ and $\{7, ~8\}$. The second numeric center is 35, that takes the list 
+$\{1, ~2, ~3, ~4, ~\ldots, ~49\}$ and produces the following two lists: 
+$\{1, ~2, ~3, ~4, ~\ldots, ~34\}$ and $\{36, ~37, ~38, ~39, ~\ldots, ~49\}$ , the sum of each 
+list is equal to 395.
+
+<p> The task consists in writing a program that calculates the total of numeric centers between 1 and $n$.
+
+
+
+<h3>Input</h3>
+
+<p> The input consists of several test cases. There is only one line for each test case. This line contains a positive integer 
+number $n$ ($1 \leq n \leq 10^{14}$). The last test case is a value of $n$ equal to zero, this test case should not be processed.
+
+
+
+<h3>Output</h3>
+
+<p> For each test case you have to print in one line, the number of numeric centers between 1 and $n$.
+
+<h3>Example</h3>
+<h4>Input:</h4>
+<pre>
+1
+7
+8
+48
+49
+50
+0
+</pre>
+<h4>Output:</h4>
+<pre>
+0
+0
+1
+1
+2
+2
+</pre>
+
+
+<br>
+
+<b>Problem Setter: Hugo Humberto Morales Peña & Sebastián Gómez</b>
