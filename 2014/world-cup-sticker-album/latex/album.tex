@@ -1,0 +1,257 @@
+\documentclass[12pt]{article}
+
+
+%%
+%% Packages
+%%
+\usepackage{ctable}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[letterpaper,top=1cm,bottom=1.5cm,left=1.6cm,right=1.4cm]{geometry}
+\usepackage{fixltx2e}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{microtype}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+%%
+%% Fonts
+%%
+\usepackage{eulervm}
+\usepackage{libertine}
+\usepackage[defaultsans]{opensans}
+\usepackage[scaled=0.8]{DejaVuSansMono}
+
+%%
+%% Colors
+%%
+\definecolor{tango-orange-2}{RGB}{245,121,0}
+\definecolor{tango-skyblue-1}{RGB}{114,159,207}
+\definecolor{tango-skyblue-2}{RGB}{52,101,164}
+\definecolor{tango-skyblue-3}{RGB}{32,74,135}
+\definecolor{tango-plum-2}{RGB}{117,80,123}
+
+
+%%
+%% Titles and Styles
+%%
+\newcommand{\FFACommentary}[1]{%
+  \vspace{0.4em}\noindent\makebox[\linewidth][c]{%
+  \begin{minipage}{0.8\linewidth} \footnotesize #1 \end{minipage}}
+  \vspace{-0.2em}}
+\newcommand{\FFASpeak}[1]{{\small\slshape #1:\hspace{0.4em}}}
+\newcommand{\FFATitle}[1]{{%
+  \color{tango-skyblue-2}\sffamily\large\bfseries\hspace{-0.4em} #1}}
+
+\titleformat{\subsection}
+{\color{tango-skyblue-2}\sffamily\large\bfseries}
+{\color{red}\thesection}{0pt}{}
+\titlespacing{\subsection}{0pt}{1em}{0pt}
+
+% Remove the author and date fields and the space associated with them
+% from the definition of maketitle!
+\makeatletter
+\renewcommand{\@maketitle}{
+\newpage
+ \null
+ %\vskip 1em%
+ \vspace{-20pt}
+ \begin{center}%
+  {\color{tango-skyblue-3}\sffamily\Large\bfseries \@title}%
+ \end{center}%
+ \vspace{-2pt}
+} \makeatother
+
+
+%%
+%% Spacing
+%%
+\renewcommand*\arraystretch{1.5}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setcounter{secnumdepth}{0}
+
+
+%%
+%% Misc.
+%%
+\hypersetup{
+    colorlinks,
+    linktocpage,
+    citecolor=tango-orange-2,
+    filecolor=black,
+    linkcolor=tango-plum-2,
+    urlcolor=tango-skyblue-2
+}
+\graphicspath{{build/img/latex/}}
+
+
+%%
+%% Document Body
+%%
+\title{ Problem ?: World Cup Sticker Album }
+\begin{document}
+\maketitle
+
+The starting date for the 2014 FIFA World Cup is approaching, and one of
+the most popular traditions among followers of this event is to collect
+the stickers (which around our latitudes receive many names, such as
+\emph{cromos}, \emph{monas}, \emph{caramelos}, \emph{estampas} and
+others) for the official album, featuring the players and stadiums that
+will be part of the upcoming World Cup.
+
+After weeks of effort, you and some of your friends are close to
+completing your albums. You are only a few stickers short of the total
+of 639 stickers required to fill the album. And, well, in order to
+obtain those few missing stickers, you have two alternatives: one is to
+swap stickers with your friends (as tradition dictates), and the other
+option---maybe less romantic, but just as effective---is to buy some of
+the stickers that you have not been able to get any other way.
+
+Thanks to an arduous investigation, you know your friends' lists of
+\emph{requested} stickers (those that they need to complete their
+albums), as well as their \emph{offered} stickers (those that they have
+one or more duplicates of, hence they are willing to part with them).
+Naturally, you also know your own lists of requested and offered
+stickers.
+
+Swapping stickers only occurs if you have a sticker that is requested by
+one of your friends, and you receive from that same friend one of their
+offered stickers. Keep in mind that, although your friends will only
+receive stickers they're requesting, you on the other hand realize that
+getting a duplicate from a swap may be good in the long run, so you
+don't have any restrictions of this kind. Furthermore, you know that you
+can do all your trades before your friends get together, so it's safe to
+assume that they won't swap stickers among themselves.
+
+As mentioned before, the other way to obtain the stickers you're missing
+is to buy them directly. To this end, you have a list of sellers, and
+know the stickers they have and their prices. It is possible to swap
+stickers you have bought, and you may also assume that your friends
+won't buy stickers.
+
+With so many numbers and possible operations going around in your head,
+you decide it would be better to write a program that helps you
+determine the maximum number of stickers you can obtain from your
+missing list, doing it with the least possible cost.
+
+\subsection{Input}\label{input}
+
+Input starts with a positive integer $T$ ($T \leq 300$), which denotes
+the number of test cases.
+
+Each case starts with a blank line, followed by the data of your
+requested and offered stickers. This information is described in two
+lines. The first line starts with an integer $p$, representing the
+number of stickers you request, and is followed by a list of $p$
+distinct integers: $R_1, R_2, \ldots, R_p$, which are the ID numbers of
+the requested stickers. The second line starts with an integer $q$,
+representing the number of distinct stickers you offer, followed by a
+list of $q$ tuples of integers of the form $(O_i,N_i)$ (with
+$1 \leq i \leq q$), where $O_i$ is the ID number of the i-th sticker,
+and $N_i$ is the amount of stickers with the number $O_i$ that you
+offer.
+
+The next line contains an integer $F$, which indicates the number of
+friends available to swap stickers with you. This is followed by $2F$
+lines, describing the requested and offered stickers for each of your
+friends, using the same format described above (2 lines per person). No
+sticker will be listed in both the $R$ and $O$ lists for any given
+person---in other words, $R \cap O = \emptyset$ in everyone's data.
+
+The next line contains and integer $S$, denoting the number of sellers.
+This is followed by $S$ lines, each line describing the data for a
+single seller. These lines start with an integer $k$, representing the
+number of distinct stickers for sale, followed by a list of $k$ tuples
+of integers of the form $(I_i,M_i,P_i)$, with ($1 \leq i \leq k$), where
+$I_i$ is the ID number of the i-th sticker, $M_i$ is the amount of
+stickers with the number $I_i$ for sale, and $P_i$ is the price (in
+Colombian \emph{pesos}) for each $I_i$ sticker.
+
+The ID numbers of all stickers (in the lists $R, O, I$) will be in the
+range $[1:639]$, and the total number of distinct stickers included in
+all the $R, O, I$ lists for each test case will never exceed 30.
+
+~~~ $1 \leq F+S < 20$~~; ~~$1 \leq p, q, k \leq 30$~~;
+~~$1 \leq N_i, M_i \leq 10$~~; ~~$10^3 \leq P_i \leq 10^4$
+
+\subsection{Output}\label{output}
+
+For each test case, print the case number, followed by two integer
+numbers: the number of stickers you will be missing after all your swaps
+and purchases, and the total cost for those operations, in that order.
+The solution must minimize the number of missing stickers in first
+place, and then minimize the cost.
+
+\paragraph{}
+
+\vspace{-20pt}
+
+\noindent
+
+\begin{tabular}{|l|l|}
+  \hline
+  \FFATitle{Sample Input} &
+  \FFATitle{Output for Sample Input} \\
+  \hline
+  \begin{minipage}[t]{0.48\textwidth}
+    \vspace{-8pt}
+    \begin{verbatim}2
+
+3 171 202 632
+2 (187,1) (264,2)
+2
+2 187 264
+2 (171,1) (632,1)
+1 264
+1 (202,1)
+0
+
+3 500 566 190
+1 (125,1)
+2
+1 125
+1 (37,1)
+1 37
+1 (566,1)
+1
+2 (500,1,2000) (566,1,1000)\end{verbatim}
+    \vspace{-4pt}
+  \end{minipage} &
+  \begin{minipage}[t]{0.48\textwidth}
+    \vspace{-8pt}
+    \begin{verbatim}Case 1: 0 0
+Case 2: 1 2000\end{verbatim}
+    \vspace{-4pt}
+  \end{minipage} \\
+  \hline
+\end{tabular}
+
+\subsection{Explanation of Sample
+Cases}\label{explanation-of-sample-cases}
+
+In the first example, you are missing only three stickers for your album
+(those stickers are 171, 202 and 632). Luckily for you, two of your
+friends are willing to swap the exact stickers you need, and you have
+all the stickers they request, so you can complete the album with no
+cost at all.
+
+In the second example, you are missing three stickers again, but this
+time it won't be possible to fill your album (no one offers you sticker
+190). Nevertheless, you can get sticker 566 if you trade with your first
+friend 125 for 37, and then swap 37 for 566 with your second friend.
+Finally, you can buy sticker 500 for 2000 pesos.
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+Problem Setter: Leonardo B.
+
+\end{document}

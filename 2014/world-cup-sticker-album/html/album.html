@@ -1,0 +1,47 @@
+<p>The starting date for the 2014 FIFA World Cup is approaching, and one of the most popular traditions among followers of this event is to collect the stickers (which around our latitudes receive many names, such as <em>cromos</em>, <em>monas</em>, <em>caramelos</em>, <em>estampas</em> and others) for the official album, featuring the players and stadiums that will be part of the upcoming World Cup.</p>
+<p>After weeks of effort, you and some of your friends are close to completing your albums. You are only a few stickers short of the total of 639 stickers required to fill the album. And, well, in order to obtain those few missing stickers, you have two alternatives: one is to swap stickers with your friends (as tradition dictates), and the other option&#8212;maybe less romantic, but just as effective&#8212;is to buy some of the stickers that you have not been able to get any other way.</p>
+<p>Thanks to an arduous investigation, you know your friends&#8217; lists of <em>requested</em> stickers (those that they need to complete their albums), as well as their <em>offered</em> stickers (those that they have one or more duplicates of, hence they are willing to part with them). Naturally, you also know your own lists of requested and offered stickers.</p>
+<p>Swapping stickers only occurs if you have a sticker that is requested by one of your friends, and you receive from that same friend one of their offered stickers. Keep in mind that, although your friends will only receive stickers they&#8217;re requesting, you on the other hand realize that getting a duplicate from a swap may be good in the long run, so you don&#8217;t have any restrictions of this kind. Furthermore, you know that you can do all your trades before your friends get together, so it&#8217;s safe to assume that they won&#8217;t swap stickers among themselves.</p>
+<p>As mentioned before, the other way to obtain the stickers you&#8217;re missing is to buy them directly. To this end, you have a list of sellers, and know the stickers they have and their prices. It is possible to swap stickers you have bought, and you may also assume that your friends won&#8217;t buy stickers.</p>
+<p>With so many numbers and possible operations going around in your head, you decide it would be better to write a program that helps you determine the maximum number of stickers you can obtain from your missing list, doing it with the least possible cost.</p>
+<h3 id="input">Input</h3>
+<p>Input starts with a positive integer <span class="math">\(T\)</span> (<span class="math">\(T \leq 300\)</span>), which denotes the number of test cases.</p>
+<p>Each case starts with a blank line, followed by the data of your requested and offered stickers. This information is described in two lines. The first line starts with an integer <span class="math">\(p\)</span>, representing the number of stickers you request, and is followed by a list of <span class="math">\(p\)</span> distinct integers: <span class="math">\(R_1, R_2, \ldots, R_p\)</span>, which are the ID numbers of the requested stickers. The second line starts with an integer <span class="math">\(q\)</span>, representing the number of distinct stickers you offer, followed by a list of <span class="math">\(q\)</span> tuples of integers of the form <span class="math">\((O_i,N_i)\)</span> (with <span class="math">\(1 \leq i \leq q\)</span>), where <span class="math">\(O_i\)</span> is the ID number of the i-th sticker, and <span class="math">\(N_i\)</span> is the amount of stickers with the number <span class="math">\(O_i\)</span> that you offer.</p>
+<p>The next line contains an integer <span class="math">\(F\)</span>, which indicates the number of friends available to swap stickers with you. This is followed by <span class="math">\(2F\)</span> lines, describing the requested and offered stickers for each of your friends, using the same format described above (2 lines per person). No sticker will be listed in both the <span class="math">\(R\)</span> and <span class="math">\(O\)</span> lists for any given person&#8212;in other words, <span class="math">\(R \cap O = \emptyset\)</span> in everyone&#8217;s data.</p>
+<p>The next line contains and integer <span class="math">\(S\)</span>, denoting the number of sellers. This is followed by <span class="math">\(S\)</span> lines, each line describing the data for a single seller. These lines start with an integer <span class="math">\(k\)</span>, representing the number of distinct stickers for sale, followed by a list of <span class="math">\(k\)</span> tuples of integers of the form <span class="math">\((I_i,M_i,P_i)\)</span>, with (<span class="math">\(1 \leq i \leq k\)</span>), where <span class="math">\(I_i\)</span> is the ID number of the i-th sticker, <span class="math">\(M_i\)</span> is the amount of stickers with the number <span class="math">\(I_i\)</span> for sale, and <span class="math">\(P_i\)</span> is the price (in Colombian <em>pesos</em>) for each <span class="math">\(I_i\)</span> sticker.</p>
+<p>The ID numbers of all stickers (in the lists <span class="math">\(R, O, I\)</span>) will be in the range <span class="math">\([1:639]\)</span>, and the total number of distinct stickers included in all the <span class="math">\(R, O, I\)</span> lists for each test case will never exceed 30.</p>
+<p>&#160;&#160;&#160; <span class="math">\(1 \leq F+S &lt; 20\)</span>&#160;&#160;; &#160;&#160;<span class="math">\(1 \leq p, q, k \leq 30\)</span>&#160;&#160;; &#160;&#160;<span class="math">\(1 \leq N_i, M_i \leq 10\)</span>&#160;&#160;; &#160;&#160;<span class="math">\(10^3 \leq P_i \leq 10^4\)</span></p>
+<h3 id="output">Output</h3>
+<p>For each test case, print the case number, followed by two integer numbers: the number of stickers you will be missing after all your swaps and purchases, and the total cost for those operations, in that order. The solution must minimize the number of missing stickers in first place, and then minimize the cost.</p>
+<h3 id="examples">Examples</h3>
+<h4 id="input-1">Input</h4>
+<pre>2
+
+3 171 202 632
+2 (187,1) (264,2)
+2
+2 187 264
+2 (171,1) (632,1)
+1 264
+1 (202,1)
+0
+
+3 500 566 190
+1 (125,1)
+2
+1 125
+1 (37,1)
+1 37
+1 (566,1)
+1
+2 (500,1,2000) (566,1,1000)</pre>
+<h4 id="output-1">Output</h4>
+<pre>Case 1: 0 0
+Case 2: 1 2000</pre>
+
+<h3 id="explanation-of-sample-cases">Explanation of Sample Cases</h3>
+<p>In the first example, you are missing only three stickers for your album (those stickers are 171, 202 and 632). Luckily for you, two of your friends are willing to swap the exact stickers you need, and you have all the stickers they request, so you can complete the album with no cost at all.</p>
+<p>In the second example, you are missing three stickers again, but this time it won&#8217;t be possible to fill your album (no one offers you sticker 190). Nevertheless, you can get sticker 566 if you trade with your first friend 125 for 37, and then swap 37 for 566 with your second friend. Finally, you can buy sticker 500 for 2000 pesos.</p>
+<hr />
+<p>Problem Setter: Leonardo B.</p>
+

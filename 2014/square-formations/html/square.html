@@ -1,0 +1,26 @@
+<p>Ra&#250;l and Jaime, as you may recall, are two young and bright brothers who love games. Jaime has received as a present a set of little plastic soldiers, and he happily shares it with Ra&#250;l every time they get together to play.</p>
+<p>Their greatest source of amusement comes from arranging their groups of soldiers in different ways. Ra&#250;l, for instance, likes to vary his formation patterns and arrange his platoons in circular or elliptic shapes, while Jaime undoubtedly prefers square formations for his soldiers&#8212;in which the number of rows is equal to the number of columns.</p>
+<p>One day, Ra&#250;l organizes a surprise attack using two platoons of soldiers, attacking two opposing flanks. This baffles Jaime, who after a long pause to think about it, discovers that when he divides his square formation into two, it becomes impossible to reassemble the halves in new square formations, and this happens regardless of the number of soldiers in his original formation.</p>
+<p>Ra&#250;l pauses to think about this too, and eventually presents Jaime with an alternative: he can prepare a first group of <span class="math">\(N\)</span> soldiers (<span class="math">\(N\)</span> being a positive, even integer), and maintain two auxiliary groups of <span class="math">\(K\)</span> soldiers. If <span class="math">\(N\)</span> and <span class="math">\(K\)</span> are chosen carefully, Ra&#250;l explains, then it is possible to create square formations with <span class="math">\(N+K\)</span> and <span class="math">\((N/2)+K\)</span> soldiers.</p>
+<p>Jaime likes the elegance of this idea, and doesn&#8217;t take long to discover an example that illustrates Ra&#250;l&#8217;s suggestion: if he keeps a main group of 14 soldiers, and two auxiliary groups with 2 soldiers each, then he can use one of the auxiliary groups to produce a main formation of 16 soldiers, and if he needs to split his main platoon into two, then he can produce two minor square formations of 9 soldiers. So, <span class="math">\(N=14, K=2\)</span> is a valid choice for Jaime.</p>
+<p>According to this, we&#8217;ll say that a pair of integers <span class="math">\((N, K)\)</span> is valid if it holds for Ra&#250;l&#8217;s proposition; that is, if it is possible to produce square formations with groups of <span class="math">\(N+K\)</span> and <span class="math">\((N/2)+K\)</span> soldiers. The question in their minds now is: given an arbitrary value of <span class="math">\(K\)</span>, what would be the lowest possible <span class="math">\(N\)</span> that generates a valid pair?</p>
+<h3 id="input">Input</h3>
+<p>Input starts with a positive integer <span class="math">\(T\)</span>, that denotes the number of test cases.</p>
+<p>Each test case is described by a single integer <span class="math">\(K\)</span> in its own line. It can be safely assumed that all test cases have a solution in which <span class="math">\(N\)</span> is a number not greater than <span class="math">\(10^6\)</span>.</p>
+<p>&#160;&#160;&#160; <span class="math">\(T \leq 1000\)</span>&#160;&#160;; &#160;&#160;<span class="math">\(1 \leq K \leq 1000\)</span></p>
+<h3 id="output">Output</h3>
+<p>For each test case, print the case number, followed by the value of <span class="math">\(N\)</span>. This number must be the lowest integer possible, such that <span class="math">\((N, K)\)</span> forms a valid pair according to Ra&#250;l&#8217;s proposition.</p>
+<h3 id="examples">Examples</h3>
+<h4 id="input-1">Input</h4>
+<pre>3
+1
+2
+36</pre>
+<h4 id="output-1">Output</h4>
+<pre>Case 1: 48
+Case 2: 14
+Case 3: 1728</pre>
+
+<hr />
+<p>Problem Setter: Leonardo B.</p>
+

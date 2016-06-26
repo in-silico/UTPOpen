@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+
+
+%%
+%% Packages
+%%
+\usepackage{ctable}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[letterpaper,top=1cm,bottom=1.5cm,left=1.6cm,right=1.4cm]{geometry}
+\usepackage{fixltx2e}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{microtype}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+%%
+%% Fonts
+%%
+\usepackage{eulervm}
+\usepackage{libertine}
+\usepackage[defaultsans]{opensans}
+\usepackage[scaled=0.8]{DejaVuSansMono}
+
+%%
+%% Colors
+%%
+\definecolor{tango-orange-2}{RGB}{245,121,0}
+\definecolor{tango-skyblue-1}{RGB}{114,159,207}
+\definecolor{tango-skyblue-2}{RGB}{52,101,164}
+\definecolor{tango-skyblue-3}{RGB}{32,74,135}
+\definecolor{tango-plum-2}{RGB}{117,80,123}
+
+
+%%
+%% Titles and Styles
+%%
+\newcommand{\FFACommentary}[1]{%
+  \vspace{0.4em}\noindent\makebox[\linewidth][c]{%
+  \begin{minipage}{0.8\linewidth} \footnotesize #1 \end{minipage}}
+  \vspace{-0.2em}}
+\newcommand{\FFASpeak}[1]{{\small\slshape #1:\hspace{0.4em}}}
+\newcommand{\FFATitle}[1]{{%
+  \color{tango-skyblue-2}\sffamily\large\bfseries\hspace{-0.4em} #1}}
+
+\titleformat{\subsection}
+{\color{tango-skyblue-2}\sffamily\large\bfseries}
+{\color{red}\thesection}{0pt}{}
+\titlespacing{\subsection}{0pt}{1em}{0pt}
+
+% Remove the author and date fields and the space associated with them
+% from the definition of maketitle!
+\makeatletter
+\renewcommand{\@maketitle}{
+\newpage
+ \null
+ %\vskip 1em%
+ \vspace{-20pt}
+ \begin{center}%
+  {\color{tango-skyblue-3}\sffamily\Large\bfseries \@title}%
+ \end{center}%
+ \vspace{-2pt}
+} \makeatother
+
+
+%%
+%% Spacing
+%%
+\renewcommand*\arraystretch{1.5}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setcounter{secnumdepth}{0}
+
+
+%%
+%% Misc.
+%%
+\hypersetup{
+    colorlinks,
+    linktocpage,
+    citecolor=tango-orange-2,
+    filecolor=black,
+    linkcolor=tango-plum-2,
+    urlcolor=tango-skyblue-2
+}
+\graphicspath{{build/img/latex/}}
+
+
+%%
+%% Document Body
+%%
+\title{ Problem ?: Square Formations }
+\begin{document}
+\maketitle
+
+Raúl and Jaime, as you may recall, are two young and bright brothers who
+love games. Jaime has received as a present a set of little plastic
+soldiers, and he happily shares it with Raúl every time they get
+together to play.
+
+Their greatest source of amusement comes from arranging their groups of
+soldiers in different ways. Raúl, for instance, likes to vary his
+formation patterns and arrange his platoons in circular or elliptic
+shapes, while Jaime undoubtedly prefers square formations for his
+soldiers---in which the number of rows is equal to the number of
+columns.
+
+One day, Raúl organizes a surprise attack using two platoons of
+soldiers, attacking two opposing flanks. This baffles Jaime, who after a
+long pause to think about it, discovers that when he divides his square
+formation into two, it becomes impossible to reassemble the halves in
+new square formations, and this happens regardless of the number of
+soldiers in his original formation.
+
+Raúl pauses to think about this too, and eventually presents Jaime with
+an alternative: he can prepare a first group of $N$ soldiers ($N$ being
+a positive, even integer), and maintain two auxiliary groups of $K$
+soldiers. If $N$ and $K$ are chosen carefully, Raúl explains, then it is
+possible to create square formations with $N+K$ and $(N/2)+K$ soldiers.
+
+Jaime likes the elegance of this idea, and doesn't take long to discover
+an example that illustrates Raúl's suggestion: if he keeps a main group
+of 14 soldiers, and two auxiliary groups with 2 soldiers each, then he
+can use one of the auxiliary groups to produce a main formation of 16
+soldiers, and if he needs to split his main platoon into two, then he
+can produce two minor square formations of 9 soldiers. So, $N=14, K=2$
+is a valid choice for Jaime.
+
+According to this, we'll say that a pair of integers $(N, K)$ is valid
+if it holds for Raúl's proposition; that is, if it is possible to
+produce square formations with groups of $N+K$ and $(N/2)+K$ soldiers.
+The question in their minds now is: given an arbitrary value of $K$,
+what would be the lowest possible $N$ that generates a valid pair?
+
+\subsection{Input}\label{input}
+
+Input starts with a positive integer $T$, that denotes the number of
+test cases.
+
+Each test case is described by a single integer $K$ in its own line. It
+can be safely assumed that all test cases have a solution in which $N$
+is a number not greater than $10^6$.
+
+~~~ $T \leq 1000$~~; ~~$1 \leq K \leq 1000$
+
+\subsection{Output}\label{output}
+
+For each test case, print the case number, followed by the value of $N$.
+This number must be the lowest integer possible, such that $(N, K)$
+forms a valid pair according to Raúl's proposition.
+
+\paragraph{}
+
+\vspace{-20pt}
+
+\noindent
+
+\begin{tabular}{|l|l|}
+  \hline
+  \FFATitle{Sample Input} &
+  \FFATitle{Output for Sample Input} \\
+  \hline
+  \begin{minipage}[t]{0.48\textwidth}
+    \vspace{-8pt}
+    \begin{verbatim}3
+1
+2
+36\end{verbatim}
+    \vspace{-4pt}
+  \end{minipage} &
+  \begin{minipage}[t]{0.48\textwidth}
+    \vspace{-8pt}
+    \begin{verbatim}Case 1: 48
+Case 2: 14
+Case 3: 1728\end{verbatim}
+    \vspace{-4pt}
+  \end{minipage} \\
+  \hline
+\end{tabular}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+Problem Setter: Leonardo B.
+
+\end{document}
