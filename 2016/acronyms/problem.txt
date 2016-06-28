@@ -1,0 +1,44 @@
+Description:
+
+There are several interesting developments in the history that were
+named in honor of their inventors, for example:
+- RSA is made of the initial letters of the surnames of Ron Rivest, Adi Shamir, and Leonard Adleman.
+- BPS is made of the initial letters of Bogomolnyi, Prasad, and Sommerfield.
+
+Sometimes, people change the name of those developments with other words (not necessarily meaningful), for example:
+
+- RSA: Randomized Super Algorithm.
+- BPS: Beyond Perturbative States.
+
+In this task you must to check if a name may have come from certain authors, note that the names could be in any order (you can re-organize them).
+
+
+Input:
+
+The input consists of several test cases. Each test case consists of two lines:
+
+- the name of the autors separated by spaces.
+- the name to check separated by spaces.
+
+All the words consist of lowercase english letter.
+
+The number of authors is greater than 1 and less than 10. This number may be different from the number of words in the name to check.
+
+Output:
+
+For each test case print "yes", if the name may have come from the given autors. Print "no" otherwise.
+
+Sample Input:
+
+rivest shamir adleman
+randomized super algorithm.
+bogomolnyi prasad sommerfield
+beyond perturbative states
+arthur jack sean
+amazing jurisprudential victory
+
+Sample Output:
+
+yes
+yes
+no
