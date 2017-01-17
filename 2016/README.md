@@ -1,10 +1,18 @@
 UTPOpen 2016
 ============
 
-Work in progres !!
+<img src="https://github.com/in-silico/logo/raw/master/src/Open-2016.png" width=200px></img>
 
 ### Problemset:
 
+- [Acronyms](https://github.com/in-silico/UTPOpen/tree/master/2016/acronyms)
+- [Digits](https://github.com/in-silico/UTPOpen/tree/master/2016/digits)
+- [Painting The Wall](https://github.com/in-silico/UTPOpen/tree/master/2016/paining-the-wall)
+- [Tobby and query](https://github.com/in-silico/UTPOpen/tree/master/2016/tobby-and-query/solutions)
+- [Tobby and seven](https://github.com/in-silico/UTPOpen/tree/master/2016/tobby-and-seven/solutions)
+- [Tobby bones](https://github.com/in-silico/UTPOpen/tree/master/2016/tobby-bones)
+- [Tobby on tree](https://github.com/in-silico/UTPOpen/tree/master/2016/tobby-on-tree)
+- [Tobby stones](https://github.com/in-silico/UTPOpen/tree/master/2016/tobby-stones/solutions)
 
 
 ### Alternative solutions and blog
